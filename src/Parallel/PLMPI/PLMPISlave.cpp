@@ -27,7 +27,7 @@ PLMPISlave::PLMPISlave(PLParallelTask* t)
 	ivGravityReached->SetSize(3);
 
 	// Reception du nombre d'esclaves
-	MPI_Bcast(&task->nWorkingProcessNumber, 1, MPI_INT, 0, *PLMPITaskDriver::GetTaskComm());
+	MPI_BCAST(&task->nWorkingProcessNumber, 1, MPI_INT, 0, *PLMPITaskDriver::GetTaskComm());
 
 	// Reception des parametres...
 	context.Bcast(*PLMPITaskDriver::GetTaskComm());

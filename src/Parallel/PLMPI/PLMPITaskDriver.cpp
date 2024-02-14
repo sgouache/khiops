@@ -176,7 +176,7 @@ void PLMPITaskDriver::BCastBlock(PLSerializer* serializer, PLMsgContext* context
 	mpiContext = cast(PLMPIMsgContext*, context);
 	require(mpiContext->GetCommunicator() != MPI_COMM_NULL);
 	require(mpiContext->nMsgType == MSGTYPE::BCAST);
-	MPI_Bcast(serializer->InternalGetMonoBlockBuffer(), serializer->InternalGetBlockSize(), MPI_CHAR, 0,
+	MPI_BCAST(serializer->InternalGetMonoBlockBuffer(), serializer->InternalGetBlockSize(), MPI_CHAR, 0,
 		  mpiContext->GetCommunicator());
 }
 

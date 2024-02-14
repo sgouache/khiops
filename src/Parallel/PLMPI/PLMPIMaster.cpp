@@ -247,7 +247,7 @@ boolean PLMPIMaster::Run()
 	debug(GetTask()->ivGrantedSlaveIds.Shuffle());
 
 	// Envoi du nombre d'esclave lances a tous les processus
-	MPI_Bcast(&task->nWorkingProcessNumber, 1, MPI_INT, 0, *PLMPITaskDriver::GetTaskComm());
+	MPI_BCAST(&task->nWorkingProcessNumber, 1, MPI_INT, 0, *PLMPITaskDriver::GetTaskComm());
 
 	// Envoi des parametres ...
 	context.Bcast(*PLMPITaskDriver::GetDriver()->GetTaskComm());
